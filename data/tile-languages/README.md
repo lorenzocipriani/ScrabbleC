@@ -4,3 +4,5 @@ Formattazione del file informativo:
 <b>lettera quantità punti\n</b>
 
 Per eventuali dubbi guardare primo esempio "it.tiles"
+
+https://en.wikipedia.org/wiki/Scrabble_letter_distributions
