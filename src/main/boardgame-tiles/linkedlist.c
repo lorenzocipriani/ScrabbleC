@@ -26,6 +26,7 @@
 #include <string.h>
 #include <errno.h>
 
+#include "linkedlist.h"
 #include "tiles.h"
 
 void add(struct tile **head, struct tile element)	//test[OK]
