@@ -34,8 +34,10 @@ void add(struct tile **head, struct tile element)	//test[OK]
 	struct tile *aus=NULL;
 		
 		aus=(struct tile *)malloc(sizeof(struct tile));
-		if(aus==NULL)
+		if(aus==NULL) {
 			fprintf(stderr,"%s\n",strerror(errno));
+			exit(EXIT_FAILURE);
+		}
 			
 		aus->letter = element.letter;
 		aus->value = element.value;
