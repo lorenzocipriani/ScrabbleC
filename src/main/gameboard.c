@@ -1,1 +1,1 @@
-//  Griglia di gioco
+/*  Griglia di gioco */

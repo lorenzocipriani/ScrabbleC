@@ -1,1 +1,1 @@
-//  Giocatore 2
+/* Giocatore 2 */

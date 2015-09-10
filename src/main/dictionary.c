@@ -1,1 +1,1 @@
-//  Gestore dell'accesso ai dizionari
+/*  Gestore dell'accesso ai dizionari */
