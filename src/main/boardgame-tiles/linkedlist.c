@@ -18,7 +18,7 @@
 ****************************************************************************/
 
 /*
- * Modulo gestione lista  cicolare doppiamente linkata: "sacchettino" porta tiles
+ * Modulo gestione lista  cicolare mono linkata: "sacchettino" porta tiles
  */
  
 #include <stdio.h>
@@ -26,10 +26,10 @@
 #include <string.h>
 #include <errno.h>
 
-#include "linkedlist.h"
 #include "tiles.h"
+#include "linkedlist.h"
 
-void add(struct tile **head, struct tile element)	//test[OK]
+void add(struct tile **head, struct tile element)
 {
 	struct tile *aus=NULL;
 		
@@ -37,42 +37,38 @@ void add(struct tile **head, struct tile element)	//test[OK]
 		if(aus==NULL) {
 			fprintf(stderr,"%s\n",strerror(errno));
 			exit(EXIT_FAILURE);
-		}
+			}
 			
 		aus->letter = element.letter;
 		aus->value = element.value;
 		
 		if((*head)==NULL) {
 			(*head)=aus;
-			(*head)->p = (*head);
 			(*head)->n = (*head);
 		} else {
-			if(((*head)->n == (*head)) && ((*head)->p == (*head))) {
+			if((*head)->n == (*head)) {
 				(*head)->n = aus;
-				aus->p = (*head);
-				(*head)->p = aus;
 				aus->n = (*head);
 			} else {
-				((*head)->n)->p=aus;
-				aus->n=((*head)->n)->p;
+				aus->n=(*head)->n;
 				(*head)->n=aus;
-				aus->p=(*head);	
 			}
 		}
+		(*head)=aus;
 		return;
 }
 
 /*
- * Estrae dalla circular double linkedlist l'N-esimo elemento.
+ * Estrae dalla circular linkedlist l'N-esimo elemento.
  * 
  * Ritorna: 
  * 	a) lettera '?' e int 0 -> Lista vuota
  *  b) il tile estratto 
  */
-struct tile pop(struct tile **head, int n)	//test [OK]
+struct tile pop(struct tile **head, int n)
 {
 	struct tile temp={'?',0};
-	struct tile *aus=NULL;
+	struct tile *aus=NULL, *vice=NULL;
 	int i;
 	
 	
@@ -82,7 +78,7 @@ struct tile pop(struct tile **head, int n)	//test [OK]
 	
 	} else {
 	
-		if(((*head)->n == (*head)) && ((*head)->p == (*head))) {
+		if((*head)->n == (*head)) {
 			aus=(*head);
 			temp.letter=(*head)->letter;
 			temp.value=(*head)->value;
@@ -91,15 +87,16 @@ struct tile pop(struct tile **head, int n)	//test [OK]
 			return temp;
 			
 		} else {
-			for(i=0; i<n; i++, (*head)=(*head)->n);
-			aus=(*head);
-			((*head)->p)->n=(*head)->n;
-			((*head)->n)->p=(*head)->p;
+			vice=(*head);
+			for(i=0; i<n; i++, (*head)=(*head)->n) {
+				if(i>0)
+					vice=vice->n;
+			}
+			
+			vice->n=(*head)->n;
 			
 			temp.letter=(*head)->letter;
 			temp.value=(*head)->value;
-			
-			(*head)=(*head)->n;
 			
 			free(aus);
 			
