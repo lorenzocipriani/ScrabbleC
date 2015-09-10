@@ -23,3 +23,5 @@ Il layout del repository software è il seguente:
 - **src**: contiene i sorgenti del progetto suddivisi in:
   - **src/main**: file di progetto
   - **src/test**: file per i test unitari
+
+Per dare nomi a variabili e funzioni si usa la lingua inglese perché le parole generalmente sono più corte rispetto all'italiano.
