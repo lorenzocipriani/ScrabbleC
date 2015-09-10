@@ -2,12 +2,12 @@
 
 typedef struct
 {
+	char *charLetter;
 	int intPoints;
 	int intAvailable;
 } tile;
 
 typedef struct
 {
-	char *charLetter;
-	tile *tileTuple;
+	tile[] *tileTuple;
 } tiles;
