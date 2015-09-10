@@ -33,7 +33,6 @@
 struct tile {
 	char letter;
 	unsigned short int value;
-	struct tile *p;
 	struct tile *n;
 };
 
