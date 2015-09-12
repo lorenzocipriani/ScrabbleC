@@ -6,11 +6,14 @@
 #include <errno.h>
 
 #include "scrabbleC.h"
+#include "../dictionary/dictionary.h"
 
 
 int main()
 {
-	printf("Hello world\n");
-	printf("Test is %d\n", test());
+    dictionary *dict = dictionary_new();
+    
+    dictionary_open(dict, "data/dictionary.txt");
+    
 	exit(EXIT_SUCCESS);
 }
