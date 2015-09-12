@@ -13,7 +13,6 @@ Lo standard di codifica segue le linee guida [Gnu Coding Standard] (http://www.g
 Il layout del repository software è il seguente:
 - **bin**: cartella di output per gli eseguibili prodotti al termine della compilazione, il contenuto non va distribuito su git (.gitignore)
   - **bin/lib**: cartella di output per le librerie di progetto, il contenuto non va distribuito su git (.gitignore)
-- **build**: cartella di output dove avviene la compilazione (creazione file oggetto: *.o), il contenuto non va distribuito su git (.gitignore)
 - **conf**: file di configurazione
 - **data**: file di dati e strutture (es.: dizionario italiano, inglese, etc)	
 - **doc**: documentazione e note
@@ -25,3 +24,17 @@ Il layout del repository software è il seguente:
   - **src/test**: file per i test unitari
 
 Per dare nomi a variabili e funzioni si usa la lingua inglese perché le parole generalmente sono più corte rispetto all'italiano.
+
+### Build
+Per compilare tutti i sorgenti, posizionarsi nella root del progetto (dove è presente il file Makefile) e digitare:
+
+`make`
+
+Per forzare una compilazione completa, digitare:
+
+`make clean && make`
+
+Se si vuole compilare uno solo degli eseguibili (es.: gameboard), digitare:
+
+`make gameboard`
+
