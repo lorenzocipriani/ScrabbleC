@@ -26,9 +26,12 @@
 #include "tiles.h"
 #include "ipcutils.h"
 
+
+/*
+ * Esegue comandi ricevuti 
+ */
 void execute_command(const char *command)
 {
-	//domani finisco, c'è da fare l'ultima cazzata :)
 	
 	
 }
