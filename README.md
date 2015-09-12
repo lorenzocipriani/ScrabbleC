@@ -18,6 +18,14 @@ Se si vuole compilare uno solo degli eseguibili (es.: gameboard), digitare:
 
 `make gameboard`
 
+Gli eseguibili (e i target di make) sono:
+- scrabbleC
+- gameboard
+- player1
+- player2
+- dictionary
+
+
 ### Standards
 La sintassi per il compilatore è lo standard [ANSI C rev.11] (https://en.wikipedia.org/wiki/C11_(C_standard_revision)).
 
