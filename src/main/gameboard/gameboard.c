@@ -47,7 +47,7 @@ void print_gameboard(struct square gameboard[15][15])
 	
 }
 
-static put_bonusInSquare(struct square gameboard[15][15])
+static void put_bonusInSquare(struct square gameboard[15][15])
 {
 	//Add Start Square
 	strcpy(gameboard[7][7].bonus,"@@");

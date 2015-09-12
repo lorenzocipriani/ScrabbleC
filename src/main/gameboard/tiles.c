@@ -21,6 +21,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
+#include <time.h>
 
 #include "tiles.h"
 #include "linkedlist.h"
@@ -69,8 +70,7 @@ void init_tiles(struct tile **tilesBag)
 			exit(EXIT_FAILURE);
 		}
 		
-		while(fscanf(fp, "%c %d %d\n", &temp.letter, &n, &temp.value)==3) {
-			//printf("scanf: %c %d %d\n", temp.letter, n, temp.value);
+		while(fscanf(fp, "%c %d %hu\n", &temp.letter, &n, &temp.value)==3) {
 			
 			for(i=0; i<n; i++) {
 				add(tilesBag, temp);
@@ -92,7 +92,7 @@ struct tile *get_tiles(struct tile **tilesBag, int n)
 {
 	int i;
 	static struct tile array[7];
-	struct tile a;
+	
 	
 		srand((unsigned)time(NULL));
 
